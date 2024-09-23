@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ReidInfo {
-    ArrayList<String> objectsList = new ArrayList();
-    ArrayList<String> weaponList = new ArrayList();
+    ArrayList<String> objectsList = new ArrayList<>();
+    ArrayList<String> weaponList = new ArrayList<>();
     Map<String, Map<String, Integer>> requiredWeapons = new HashMap<>();
 
     public ReidInfo() {
@@ -17,7 +17,7 @@ public class ReidInfo {
 
     public void initObjectList() {
         objectsList.add("1. Wood Door");
-        objectsList.add("2. Sheet Metal Door ");
+        objectsList.add("2. Sheet Metal Door");
         objectsList.add("3. Garage Door");
         objectsList.add("4. Armored Door");
         objectsList.add("5. Wall Wood");
@@ -38,7 +38,7 @@ public class ReidInfo {
         for (String object : objectsList) {
             Map<String, Integer> weaponCounts = new HashMap<>();
 
-            if (object.equals("1. Wood door")) {
+            if (object.equals("1. Wood Door")) {
                 weaponCounts.put("1. Satchel charge", 2);
                 weaponCounts.put("2. C4 charge", 1);
                 weaponCounts.put("3. Explosive ammo", 16);
@@ -46,48 +46,32 @@ public class ReidInfo {
                 requiredWeapons.put(object, weaponCounts);
             } else {
                 if (object.equals("2. Sheet Metal Door")) {
-                    weaponCounts.put("1. Satchel charge", 4);
-                    weaponCounts.put("2. C4 charge", 1);
-                    weaponCounts.put("3. Explosive ammo", 63);
-                    weaponCounts.put("4. Rocket", 2);
+                    addWeaponToMap(object, 4, 1, 63, 2);
                 } else if (object.equals("3. Garage Door")) {
-                    weaponCounts.put("1. Satchel charge", 9);
-                    weaponCounts.put("2. C4 charge", 2);
-                    weaponCounts.put("3. Explosive ammo", 150);
-                    weaponCounts.put("4. Rocket", 3);
+                    addWeaponToMap(object, 9, 2, 150, 3);
                 } else if (object.equals("4. Armored Door")) {
-                    weaponCounts.put("1. Satchel charge", 15);
-                    weaponCounts.put("2. C4 charge", 3);
-                    weaponCounts.put("3. Explosive ammo", 250);
-                    weaponCounts.put("4. Rocket", 5);
+                    addWeaponToMap(object, 15, 3, 250, 5);
                 } else if (object.equals("5. Wall Wood")) {
-                    weaponCounts.put("1. Satchel charge", 3);
-                    weaponCounts.put("2. C4 charge", 1);
-                    weaponCounts.put("3. Explosive ammo", 42);
-                    weaponCounts.put("4. Rocket", 2);
+                    addWeaponToMap(object, 3, 1, 42, 2);
                 } else if (object.equals("6. Wall Stone")) {
-                    weaponCounts.put("1. Satchel charge", 10);
-                    weaponCounts.put("2. C4 charge", 2);
-                    weaponCounts.put("3. Explosive ammo", 167);
-                    weaponCounts.put("4. Rocket", 4);
+                    addWeaponToMap(object, 10, 2, 167, 4);
                 } else if (object.equals("7. Wall Metal")) {
-                    weaponCounts.put("1. Satchel charge", 23);
-                    weaponCounts.put("2. C4 charge", 4);
-                    weaponCounts.put("3. Explosive ammo", 399);
-                    weaponCounts.put("4. Rocket", 8);
+                    addWeaponToMap(object, 23, 4, 399, 8);
                 } else if (object.equals("8. Wall Top Tier")) {
-                    weaponCounts.put("1. Satchel charge", 46);
-                    weaponCounts.put("2. C4 charge", 8);
-                    weaponCounts.put("3. Explosive ammo", 797);
-                    weaponCounts.put("4. Rocket", 15);
+                    addWeaponToMap(object, 46, 8, 797, 15);
                 } else if (object.equals("9. Metal Shop Front")) {
-                    weaponCounts.put("1. Satchel charge", 18);
-                    weaponCounts.put("2. C4 charge", 3);
-                    weaponCounts.put("3. Explosive ammo", 299);
-                    weaponCounts.put("4. Rocket", 6);
+                    addWeaponToMap(object, 18, 3, 299, 6);
                 }
-                requiredWeapons.put(object, weaponCounts);
             }
         }
+    }
+
+    public void addWeaponToMap(String object, int satchel, int c4, int explosiveAmmo, int rocket) {
+        Map<String, Integer> weaponCounts = new HashMap<>();
+        weaponCounts.put("1. Satchel charge", satchel);
+        weaponCounts.put("2. C4 charge", c4);
+        weaponCounts.put("3. Explosive ammo", explosiveAmmo);
+        weaponCounts.put("4. Rocket", rocket);
+        requiredWeapons.put(object, weaponCounts);
     }
 }
