@@ -57,7 +57,7 @@ public class ReidInfo {
                     addWeaponToMap(object, 10, 2, 167, 4);
                 } else if (object.equals("7. Wall Metal")) {
                     addWeaponToMap(object, 23, 4, 399, 8);
-                } else if (object.equals("8. Wall Top Tier")) {
+                } else if (object.equals("8. Wall TopTier")) {
                     addWeaponToMap(object, 46, 8, 797, 15);
                 } else if (object.equals("9. Metal Shop Front")) {
                     addWeaponToMap(object, 18, 3, 299, 6);
